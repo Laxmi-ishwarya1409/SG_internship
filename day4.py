@@ -27,6 +27,12 @@ while guess_number != my_number:
 print("Correct!")
 
 
+
+
+
+
+
+
 my_number = 42
 maximum_attempts = 3 
 
