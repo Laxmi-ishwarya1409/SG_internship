@@ -1,7 +1,5 @@
 # Create a Employee directory CLI.
 
-directory = {}
-employee_id = 1 
 def show_options():
         print("Please select the directory:")
         print("1. Add employee")
@@ -31,7 +29,7 @@ def add_emp(directory,emp_id):
         "phone_number" : phone_number,
         "location" : location
     }
-    print(f"Employee {name}, Employee ID {employee_id} added successfully.")
+    print(f"Employee {name}, Employee ID {emp_id} added successfully.")
     return emp_id + 1
 
 
@@ -56,26 +54,33 @@ def delete_emp(directory):
     emp_id = int(input("Enter employee ID to delete: "))
     if emp_id in directory:
             removed = directory.pop(emp_id)
-            print(f"Employee '{removed['name']}' deleted successfully.")
+            print(f"Employee {removed['name']} deleted successfully.")
     else:
         print("Employee not found.")
 
 
-while True:
-    show_options()
-    select = input("Enter your choice (1,2,3,4,5): ")
 
+def main():
+    directory = {}
+    employee_id = 1
 
-    if select == '1':
-        employee_id = add_emp(directory, employee_id)
-    elif select == '2':
-        view_all_emp(directory)
-    elif select == '3':
-        search_emp(directory)
-    elif select == '4':
-        delete_emp(directory)
-    elif select == '5':
-        print("Exiting...")
-        break
-    else:
-        print("Invalid input, try again...")
+    while True:
+        show_options()
+        select = input("Enter your choice (1,2,3,4,5): ")
+
+        if select == '1':
+            employee_id = add_emp(directory, employee_id)
+        elif select == '2':
+            view_all_emp(directory)
+        elif select == '3':
+            search_emp(directory)
+        elif select == '4':
+            delete_emp(directory)
+        elif select == '5':
+            print("Exiting...")
+            break
+        else:
+            print("Invalid input, try again...")
+
+if __name__ == "__main__":
+    main()
