@@ -1,0 +1,42 @@
+# Create a simple calculator that performs addition, subtraction, multiplication, and division.
+
+def calculator():
+    try:
+        print("Please select the operation:")
+        print("1. Addition")
+        print("2. Subtraction")
+        print("3. Multiplication")
+        print("4. Division")
+
+        select = input("Enter your selection (1, 2, 3, 4): ").strip()
+
+        if select not in ['1', '2', '3', '4']:
+            raise ValueError("Invalid operation selected.")
+
+        num1 = float(input("Enter the first number: "))
+        num2 = float(input("Enter the second number: "))
+
+        if select == '1':
+            result = num1 + num2
+            operation = "Addition"
+        elif select == '2':
+            result = num1 - num2
+            operation = "Subtraction"
+        elif select == '3':
+            result = num1 * num2
+            operation = "Multiplication"
+        elif select == '4':
+            if num2 == 0:
+                raise ZeroDivisionError("Cannot divide by zero.")
+            result = num1 / num2
+            operation = "Division"
+
+        print(f"{operation} result is: {result}")
+
+    except ValueError as ve:
+        print("Input Error:", ve)
+
+    except Exception as e:
+        print("Something went wrong:", e)
+
+calculator()
