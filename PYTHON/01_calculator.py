@@ -1,11 +1,5 @@
 # Create a simple calculator that performs addition, subtraction, multiplication, and division.
 
-
-
-class StrError(Exception):
-   pass
-
-
 def calculator():
     running = True
     while running:
